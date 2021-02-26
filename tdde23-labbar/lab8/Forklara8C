@@ -1,0 +1,23 @@
+
+
+Diagram över hur remove fungerar genom abstraktionslager
+
+      remove()            calenar.py
+        |
+        |
+      remove_appointment()  booking.py
+        |
+        |
+      delete_appointment()  calendar_abstraction.py
+
+
+Funktionerna använder varanda på det sättet att remove() är vår
+gränssnittsfunktion som användaren själv kan använda. Denna funktion kontrollerar
+ifall tiden i fråga är bokad, är den det kommer den skriva om kalendern så att den
+tiden blir ledig. Den anropar i sin tur remove_appointment som ligger i booking
+där vi returnerar en ny kalendar där vår appointment har blivit "raderat".
+Vidare hamnnar vi i delete_appointment som ligger i kalendar calendar_abstraction.
+Denna går igenom de tider som finns och ifall en av tiderna matchar den tid vi vill
+ta bort kommer den hoppa över den tiden. Slutligen returnerar den en ny kalendar.
+
+Funktionerna är också angivna var de bör ligga i lab8C.py

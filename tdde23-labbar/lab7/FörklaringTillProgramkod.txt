@@ -1,0 +1,19 @@
+Förklaring i form av pseudokod för att visa hur 7A är tänkt att fungera. 
+
+match()
+Funktionen match har vi utökat så att den söker dubbelrekursivt. 
+Vi kontrollerar ifall "patterns" första element är en lista, är den det går vi ner i den listan men vår sekvens.
+Vi sparar detta i en variabel och returnerar den. Samma princip gäller ifall sekvensen vi skickat in består av listor i listor.
+Därvid skickar går vi istället ner i sekvenens första element med vårt pattern, sparar det i en variabel och returner det. 
+På så vis kan vi söka, även om båda "pattern" eller "seq" råkar vara dubbelrekursiva. 
+
+
+search(mönster, databas)
+
+Om det ej finns en databas:
+	returnera en tom lista
+Annars skicka databasens första element till vår match funktion med ett givet pattern
+	Får vi en träff, returnera den träffen och fortsätt med resten av listan
+Annars 
+	Fortsätt med resten av listan. 
+

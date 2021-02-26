@@ -1,0 +1,13 @@
+pixel_constraint:
+Vi valde ValueError eftersom vi ej kan läsa tupeln som en pixel
+om det finns fler än 3 element då en pixel består av 3 element.
+
+generator_from_image:
+Vi valde IndexError ifall vi söker ett index som finns utanför vår lista. Med
+andra ord så försöker vi hämta en pixel som finns utanför vår bild, alltså
+existerar den ej.
+
+
+combine_images:
+Kollar pixeln på samma sätt som i de ovan. Ifall det går igenom bör
+allt i fråga var ok. 

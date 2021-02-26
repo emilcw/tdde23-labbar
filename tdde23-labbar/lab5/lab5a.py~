@@ -1,0 +1,63 @@
+import cv2
+import cvlib
+
+
+def remove_blue(picture):
+    """
+    This function removes all the blue in each pixel in an image
+    """
+    image = cv2.imread(picture,1)
+    picsize = (image.shape[0], image.shape[1])
+    for px in range(picsize[0]):
+        for py in range(picsize[1]):
+            image[px,py][0] = 0
+
+    cv2.imshow("Blue Eagle",image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
+def cvimg_to_list(image):
+    """
+    This function takes an OpenCV-picture and returns a list
+    with BGR-tuplers.
+    """
+    picsize = (image.shape[0], image.shape[1])
+    colrange = []
+    for px in range(picsize[0]):
+        for py in range(picsize[1]):
+            temp = (image[px, py][0], image[px,py][1], image[px,py][2])
+            colrange.append(temp)
+    return colrange
+
+
+def all_pairs_ordered(roof):
+    out = [(x,y) for x in range(roof+1) for y in range (roof+1)]
+    return out
+
+
+def factorial (nr):
+    if nr < 1:
+        return 1
+    else:
+        summa = nr * factorial(nr - 1)
+    return summa
+
+
+def delfactor (n, k):
+    if n <= k:
+        return 1
+    else:
+        return n * delfactor(n-1, k)
+
+
+def choose(n, k):
+    if k >= (n-k):
+        return delfactor(n, k)//factorial(n-k)
+    else:
+        return delfactor(n, n-k)//factorial(k)
+
+
+def pascals(rows):
+    out = [[choose(y, x) for x in range(y + 1)] for y in range(rows)]
+    return out
